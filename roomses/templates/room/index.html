@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chat</title>
+</head>
+<style>
+.card {
+  flex-direction: row;
+  max-width: 30em;
+}
+.card-body{
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+<body>
+  <h1>hello</h1>
+  <div class="card">
+  {% for room in rooms %}
+  <div class="card-body">
+<p class="card-text">{{ room.name }}</p>
+<a class="btn btn-primary" href="{% url 'room' 'room.slug' %}">entrar</a>
+{% endfor %}
+    </div>
+  </div>
+</body>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</html>
